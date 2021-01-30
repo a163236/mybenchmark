@@ -1,0 +1,171 @@
+
+src/mt_loopadd.out:     ファイル形式 elf32-littleriscv
+
+
+セクション .text の逆アセンブル:
+
+00000000 <_start>:
+   0:	00007137          	lui	sp,0x7
+   4:	53010113          	addi	sp,sp,1328 # 7530 <i1+0x6518>
+   8:	000020b7          	lui	ra,0x2
+   c:	71008093          	addi	ra,ra,1808 # 2710 <i1+0x16f8>
+  10:	1d40006f          	j	1e4 <main>
+
+00000014 <_pallc>:
+  14:	00000613          	li	a2,0
+  18:	00b5060b          	pallc	a2,a0,a1
+  1c:	0025460b          	fwd	a2,a0,sp
+  20:	0085460b          	fwd	a2,a0,s0
+  24:	00060513          	mv	a0,a2
+  28:	00008067          	ret
+
+0000002c <_publk>:
+  2c:	00000613          	li	a2,0
+  30:	0005360b          	publk	a2,a0
+  34:	00060513          	mv	a0,a2
+  38:	00008067          	ret
+
+0000003c <_pblk>:
+  3c:	00000613          	li	a2,0
+  40:	0005260b          	pblk	a2,a0
+  44:	00060513          	mv	a0,a2
+  48:	00008067          	ret
+
+0000004c <_pdall>:
+  4c:	00000613          	li	a2,0
+  50:	0005160b          	pdall	a2,a0
+  54:	00000013          	nop
+  58:	00000013          	nop
+
+0000005c <loop0>:
+  5c:	ff010113          	addi	sp,sp,-16
+  60:	00812623          	sw	s0,12(sp)
+  64:	01010413          	addi	s0,sp,16
+  68:	00001797          	auipc	a5,0x1
+  6c:	f9878793          	addi	a5,a5,-104 # 1000 <_end>
+  70:	0007a023          	sw	zero,0(a5)
+  74:	00001797          	auipc	a5,0x1
+  78:	fa078793          	addi	a5,a5,-96 # 1014 <i0>
+  7c:	0007a023          	sw	zero,0(a5)
+  80:	03c0006f          	j	bc <loop0+0x60>
+  84:	00001797          	auipc	a5,0x1
+  88:	f7c78793          	addi	a5,a5,-132 # 1000 <_end>
+  8c:	0007a783          	lw	a5,0(a5)
+  90:	00178713          	addi	a4,a5,1
+  94:	00001797          	auipc	a5,0x1
+  98:	f6c78793          	addi	a5,a5,-148 # 1000 <_end>
+  9c:	00e7a023          	sw	a4,0(a5)
+  a0:	00001797          	auipc	a5,0x1
+  a4:	f7478793          	addi	a5,a5,-140 # 1014 <i0>
+  a8:	0007a783          	lw	a5,0(a5)
+  ac:	00178713          	addi	a4,a5,1
+  b0:	00001797          	auipc	a5,0x1
+  b4:	f6478793          	addi	a5,a5,-156 # 1014 <i0>
+  b8:	00e7a023          	sw	a4,0(a5)
+  bc:	00001797          	auipc	a5,0x1
+  c0:	f5878793          	addi	a5,a5,-168 # 1014 <i0>
+  c4:	0007a703          	lw	a4,0(a5)
+  c8:	01800793          	li	a5,24
+  cc:	fae7dce3          	bge	a5,a4,84 <loop0+0x28>
+  d0:	00000013          	nop
+  d4:	00000013          	nop
+  d8:	00c12403          	lw	s0,12(sp)
+  dc:	01010113          	addi	sp,sp,16
+  e0:	00008067          	ret
+
+000000e4 <loop1>:
+  e4:	ff010113          	addi	sp,sp,-16
+  e8:	00112623          	sw	ra,12(sp)
+  ec:	00812423          	sw	s0,8(sp)
+  f0:	01010413          	addi	s0,sp,16
+  f4:	00001797          	auipc	a5,0x1
+  f8:	f1078793          	addi	a5,a5,-240 # 1004 <b>
+  fc:	0007a023          	sw	zero,0(a5)
+ 100:	00001797          	auipc	a5,0x1
+ 104:	f1878793          	addi	a5,a5,-232 # 1018 <i1>
+ 108:	0007a023          	sw	zero,0(a5)
+ 10c:	03c0006f          	j	148 <loop1+0x64>
+ 110:	00001797          	auipc	a5,0x1
+ 114:	ef478793          	addi	a5,a5,-268 # 1004 <b>
+ 118:	0007a783          	lw	a5,0(a5)
+ 11c:	00178713          	addi	a4,a5,1
+ 120:	00001797          	auipc	a5,0x1
+ 124:	ee478793          	addi	a5,a5,-284 # 1004 <b>
+ 128:	00e7a023          	sw	a4,0(a5)
+ 12c:	00001797          	auipc	a5,0x1
+ 130:	eec78793          	addi	a5,a5,-276 # 1018 <i1>
+ 134:	0007a783          	lw	a5,0(a5)
+ 138:	00178713          	addi	a4,a5,1
+ 13c:	00001797          	auipc	a5,0x1
+ 140:	edc78793          	addi	a5,a5,-292 # 1018 <i1>
+ 144:	00e7a023          	sw	a4,0(a5)
+ 148:	00001797          	auipc	a5,0x1
+ 14c:	ed078793          	addi	a5,a5,-304 # 1018 <i1>
+ 150:	0007a703          	lw	a4,0(a5)
+ 154:	01800793          	li	a5,24
+ 158:	fae7dce3          	bge	a5,a4,110 <loop1+0x2c>
+ 15c:	00001797          	auipc	a5,0x1
+ 160:	eac78793          	addi	a5,a5,-340 # 1008 <success_publk>
+ 164:	0007a023          	sw	zero,0(a5)
+ 168:	01c0006f          	j	184 <loop1+0xa0>
+ 16c:	00000513          	li	a0,0
+ 170:	ebdff0ef          	jal	ra,2c <_publk>
+ 174:	00050713          	mv	a4,a0
+ 178:	00001797          	auipc	a5,0x1
+ 17c:	e9078793          	addi	a5,a5,-368 # 1008 <success_publk>
+ 180:	00e7a023          	sw	a4,0(a5)
+ 184:	00001797          	auipc	a5,0x1
+ 188:	e8478793          	addi	a5,a5,-380 # 1008 <success_publk>
+ 18c:	0007a783          	lw	a5,0(a5)
+ 190:	fc078ee3          	beqz	a5,16c <loop1+0x88>
+ 194:	00001797          	auipc	a5,0x1
+ 198:	e7c78793          	addi	a5,a5,-388 # 1010 <success_pdall>
+ 19c:	0007a023          	sw	zero,0(a5)
+ 1a0:	01c0006f          	j	1bc <loop1+0xd8>
+ 1a4:	00100513          	li	a0,1
+ 1a8:	ea5ff0ef          	jal	ra,4c <_pdall>
+ 1ac:	00050713          	mv	a4,a0
+ 1b0:	00001797          	auipc	a5,0x1
+ 1b4:	e6078793          	addi	a5,a5,-416 # 1010 <success_pdall>
+ 1b8:	00e7a023          	sw	a4,0(a5)
+ 1bc:	00001797          	auipc	a5,0x1
+ 1c0:	e5478793          	addi	a5,a5,-428 # 1010 <success_pdall>
+ 1c4:	0007a783          	lw	a5,0(a5)
+ 1c8:	fc078ee3          	beqz	a5,1a4 <loop1+0xc0>
+ 1cc:	00000013          	nop
+ 1d0:	00000013          	nop
+ 1d4:	00c12083          	lw	ra,12(sp)
+ 1d8:	00812403          	lw	s0,8(sp)
+ 1dc:	01010113          	addi	sp,sp,16
+ 1e0:	00008067          	ret
+
+000001e4 <main>:
+ 1e4:	ff010113          	addi	sp,sp,-16
+ 1e8:	00112623          	sw	ra,12(sp)
+ 1ec:	00812423          	sw	s0,8(sp)
+ 1f0:	01010413          	addi	s0,sp,16
+ 1f4:	00000797          	auipc	a5,0x0
+ 1f8:	ef078793          	addi	a5,a5,-272 # e4 <loop1>
+ 1fc:	00078593          	mv	a1,a5
+ 200:	00100513          	li	a0,1
+ 204:	e11ff0ef          	jal	ra,14 <_pallc>
+ 208:	00100513          	li	a0,1
+ 20c:	e21ff0ef          	jal	ra,2c <_publk>
+ 210:	e4dff0ef          	jal	ra,5c <loop0>
+ 214:	00000513          	li	a0,0
+ 218:	e25ff0ef          	jal	ra,3c <_pblk>
+ 21c:	00001797          	auipc	a5,0x1
+ 220:	de478793          	addi	a5,a5,-540 # 1000 <_end>
+ 224:	0007a703          	lw	a4,0(a5)
+ 228:	000137b7          	lui	a5,0x13
+ 22c:	cc878793          	addi	a5,a5,-824 # 12cc8 <i1+0x11cb0>
+ 230:	00f70733          	add	a4,a4,a5
+ 234:	00001797          	auipc	a5,0x1
+ 238:	dd078793          	addi	a5,a5,-560 # 1004 <b>
+ 23c:	0007a783          	lw	a5,0(a5)
+ 240:	00f707b3          	add	a5,a4,a5
+ 244:	00078513          	mv	a0,a5
+ 248:	00c12083          	lw	ra,12(sp)
+ 24c:	00812403          	lw	s0,8(sp)
+ 250:	01010113          	addi	sp,sp,16
+ 254:	00008067          	ret
