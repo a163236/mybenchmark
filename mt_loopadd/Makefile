@@ -1,7 +1,7 @@
 src_dir := ./src/
 env_dir := ./env/
 
-XLEN = 64
+XLEN = 32
 # ターゲットアーキテクチャ
 TARARCH = rv32ia
 TARMABI = ilp32
@@ -28,11 +28,12 @@ all: $(HEXSRC) $(DUMPSRC)
 # hexファイル
 %.hex: $(BINSRC)
 	# 4byteごとの出力
-	hexdump -v -e '1/4 "%08x" "\n"' $*.bin > $@
-	# 8byteごとの出力 ＊間違いです
-	#hexdump -v -e '2/4 "%08x" "\n"' $*.bin > $@
+	#hexdump -v -e '1/4 "%08x" "\n"' $*.bin > $@
+	# 8byteごとの出力
+	od -An -tx8 -w8 $*.bin > $@
 	# 1byteごとのリトルエンディアンの出力
 	#hexdump -v -e '4/1 "%02x " "\n"' $*.bin > $@
+
 
 # binファイル作成
 %.bin: $(OUTSRC)
